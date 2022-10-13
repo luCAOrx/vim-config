@@ -18,22 +18,13 @@ function! Multiple_cursors_after()
   endif
 endfunction
 
-function! DisableConceallevel()
-  set conceallevel=0
-endfunction
-
 call Multiple_cursors_before()
 call Multiple_cursors_after()
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 
-" autocmd! CursorHold,CursorHoldI * call DisableConceallevel()
-
 " Automatically save the session when leaving Vim
 autocmd! VimLeave * mksession!
 
 " Automatically load the session when entering vim
-autocmd! VimEnter * source ./Session.vim
-
-" Automatically disable conceallevel
-autocmd! VimEnter * call DisableConceallevel()
+autocmd! VimEnter * source Session.vim
